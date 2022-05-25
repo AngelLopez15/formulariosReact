@@ -11,9 +11,24 @@ function App() {
 
   // Para los "select" si queremos darles un valor por default debemos ocupar tambien el defaultValue y no el selected como en html normal
 
+  // -------------------------EVENTOS---------------------------------------------
+  // En los formularios el evento mas importante ese el submit
+  // En react los eventos se escriben con camelCase para el submit sera -> onSubmit
+  // Para el chance sera -> onChange
+  // Para el click -> onClick
+
+  const submit = (e) => {
+    // Con e.preventDefault hacemos que el comportamiento por defecto no sucesa
+    // lo siguiente despues de esa linea podemos hacer lo que queramos
+    e.preventDefault();
+    // alert("Formulario enviado");
+    // console.log(e); // de esta manera podemos entrar a a ver todas las propiedades del evento
+    console.log(e.target);
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={ submit }>
         <input type="email" defaultValue="angel@correo.com" />
         <input type="password" placeholder="Contraseña" required />
         <textarea name="about" id="about" cols="30" rows="10" defaultValue="Hola Mundo" />
