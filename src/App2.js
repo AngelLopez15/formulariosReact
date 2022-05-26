@@ -7,6 +7,10 @@ const App2 = () => {
 
   const [data, setData] = useState({ email: "", password: "" })
 
+  // si quieramos manejarcomo un componente no controlado entonces debemos usar referencias ref
+  // const loginForm = useRef();
+  // const data = { email: "", password: "" }
+
   // como necesitamos que la funcion se dinamica por que seria inpractico hacer una funcion por cada input
   // para cambiar el valor del input en especifico, entonces le decimos al evento que entre al target y a la propiedad name
   // debe de estar entre corchetes para que pueda acceder a las propiedades
@@ -19,12 +23,14 @@ const App2 = () => {
 
   const submit = (e) => {
     e.preventDefault();
+    // console.log(loginForm.current)
     alert("Bienvenido!")
   }
 
   return (
     <div>
       <form onSubmit={ submit }>
+      {/* <form onSubmit={ submit } ref={ loginForm } > */}
         <div>
           <label htmlFor="email">
             Correo electrónico
@@ -34,6 +40,11 @@ const App2 = () => {
               value={ data.email } 
               onChange={ changeData } 
             />
+            {/* <input 
+              type="email" 
+              name="email" 
+              defaultValue={ data.email } 
+            /> */}
           </label>
         </div>
         <div>
@@ -44,6 +55,11 @@ const App2 = () => {
               value={ data.password } 
               onChange={ changeData } 
             />
+            {/* <input 
+              type="password" 
+              name="password" 
+              defaultValue={ data.password } 
+            /> */}
           </label>
         </div>
         <div>
