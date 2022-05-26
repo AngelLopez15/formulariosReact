@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   // En react existe el concepto de componente controlados y los componentes mantienene el estado por defecto
   // es por eso que si al input le ponemos el valor "value" no nos dejara editarlo 
@@ -17,6 +19,13 @@ function App() {
   // Para el chance sera -> onChange
   // Para el click -> onClick
 
+  // usando los hooks en el formulario
+  const [num, setNum] = useState(0);
+
+  const countCharacter = (e) => {
+    setNum(e.target.value.length);
+  }
+
   const submit = (e) => {
     // Con e.preventDefault hacemos que el comportamiento por defecto no sucesa
     // lo siguiente despues de esa linea podemos hacer lo que queramos
@@ -30,16 +39,17 @@ function App() {
     <div>
       <form onSubmit={ submit }>
         <input type="email" defaultValue="angel@correo.com" />
-        <input type="password" placeholder="Contraseña" required />
-        <textarea name="about" id="about" cols="30" rows="10" defaultValue="Hola Mundo" />
-        <select name="country" id="country" defaultValue="mx" required>
+        <input type="password" placeholder="Contraseña" required onChange={ countCharacter} />
+        {/* <textarea name="about" id="about" cols="30" rows="10" defaultValue="Hola Mundo" /> */}
+        {/* <select name="country" id="country" defaultValue="mx" required>
           <option value="">-Seleccionar-</option>
           <option value="mx">Mexico</option>
           <option value="pe">Perú</option>
           <option value="co">Colombia</option>
-        </select>
-        <label htmlFor="remember">Recordar</label>
-        <input type="checkbox" name="remember" id="remember" defaultChecked />
+        </select> */}
+        {/* <label htmlFor="remember">Recordar</label>
+        <input type="checkbox" name="remember" id="remember" defaultChecked /> */}
+        <p>Usted ingreso { num } caracteres </p>
         <button type="submit">Ingresar</button>
       </form>
     </div>
