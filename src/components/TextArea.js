@@ -1,23 +1,19 @@
-const Field = (props) => {
+const TextArea = (props) => {
   const {
     label,
-    type,
     value,
     changeData,
     name,
-    checked,
   } = props;
 
   return (
     <div>
       <label htmlFor={ name }>
         { label }
-        <input 
-          type={ type }
+        <textarea 
           name={ name }
           id={ name }
           defaultValue={ value }
-          defaultChecked={ checked }
           onChange={ changeData }
         />
       </label>
@@ -25,4 +21,4 @@ const Field = (props) => {
   )
 }
 
-export default Field;
+export default TextArea
