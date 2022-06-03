@@ -2,16 +2,16 @@ const Select = (props) => {
   const {
     label,
     value = "",
-    changeData,
     name,
     options = [],
+    changeData,
   } = props;
 
   return (
     <div>
       <label htmlFor={ name }>
         { label }
-        <select defaultValue={ value } onChange={ changeData }>
+        <select name={ name } id={ name } defaultValue={ value } onChange={ changeData }>
           <option value="">-Seleccionar-</option>
           {
             options.map(optionItem => (
