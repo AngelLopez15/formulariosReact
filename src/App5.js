@@ -33,7 +33,7 @@ const App5 = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3350/leads", {
+    fetch("http://localhost:3050/leads", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
